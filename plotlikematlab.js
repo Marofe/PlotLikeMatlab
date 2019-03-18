@@ -1,10 +1,5 @@
 /*! Plot Like Matlab v0.1 | (c) Eng. Marcos Rogério Fernandes | github.com/marofe */
 
-  
-var points1 = [0,10,20,30,50,10,100,150,125,160,190,40,50];
-var points2 = [100,50,75,150,10,20,50,60,70,100,120,90,10];
-var points3 = [50,75,60,30,75,100,120,140,305,160,10,20,100];
-
 function Figure(container,width,height) {
     this.width=width;
     this.height=height;
@@ -84,11 +79,12 @@ function Figure(container,width,height) {
 }
 
 function Vector(start,dt,end) {
-    var N = (end-start)/dt;
-    var vect=[];
+    var N = (end-start)/dt+1;
+    console.log(N);
+    var vect= new Array();
     vect[0]=start;
     for (var i=1;i<N;i++){
-        vect[i]+=dt;
+        vect[i]=i*dt;
     }
     return vect;
 }
