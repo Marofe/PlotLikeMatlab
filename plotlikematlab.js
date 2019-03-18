@@ -70,6 +70,10 @@ function Figure(container,width,height) {
         }else {
          if (setup.color==null) setup.color='red'; 
          if (setup.linewidth==null) setup.linewidth=1;
+         if (setup.color=='newblue') setup.color='rgb(0,114,189)';
+         if (setup.color=='newred') setup.color='rgb(217,83,25)';
+         if (setup.color=='newgreen') setup.color='rgb(119,172,48)';
+         
         }
         var pathString = that.convertToPath(x,y,that.height);
         that.snap.path(pathString).attr({
@@ -78,7 +82,35 @@ function Figure(container,width,height) {
           strokeWidth: setup.linewidth
         });
       }
-    this.title=function(tlt){
+    this.title=function(tlt,setup){
+      if (setup == null){
+        setup = {
+          fontSize:30,
+          fontFamily: 'verdana',
+          fontWeight: 'bold',
+          class:'title'
+        }
+      }
+      that.snap.text(that.width/2-10*tlt.length,35,tlt).attr(setup);
+    }
+    this.ylabel=function(tlt,setup){
+      if (setup == null){
+        setup= {
+          fontSize:20,
+          fontFamily: 'verdana',
+          transform: 'rotate(-90 30 '+that.height/2+')'
+        }
+      }
+      that.snap.text(20-5*tlt.length,that.height/2,tlt).attr(setup);
+    }
+    this.xlabel=function(tlt,setup){
+      if (setup == null){
+        setup= {
+          fontSize:20,
+          fontFamily: 'verdana'
+        }
+      }
+      that.snap.text(that.width/2-5*tlt.length,that.height-20,tlt).attr(setup);
     }
 }
 

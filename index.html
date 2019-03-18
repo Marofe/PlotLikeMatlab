@@ -18,13 +18,15 @@
     ydata[i]=Math.sin(i*0.1);
     tdata[i]=i*0.1;
     }
-    figure1.plot(tdata,ydata,{color:"#FF0000",linewidth:2});
+    figure1.plot(tdata,ydata,{color:"red",linewidth:2});
     for (var i=0;i<100;i++){
     ydata[i]=Math.cos(i*0.1);
     tdata[i]=i*0.1;
     }
-    figure1.plot(tdata,ydata,{color:'blue',linewidth:2});
-
+    figure1.plot(tdata,ydata,{color:'newblue',linewidth:2});
+    figure1.title('Sine Function');
+    figure1.ylabel('Velocity (m/s)');
+    figure1.xlabel('Time (s)');
 
   </script>
         <style>
