@@ -64,15 +64,19 @@ function Figure(container,width,height) {
     this.plot=function (x,y,setup) {
         if (setup == null) {
             setup = {
-            stroke: 'red',
-            strokeWidth: 2,
-            fill:'transparent'
+            color: 'red',
+            linewidth: 1
             }
+        }else {
+         if (setup.color==null) setup.color='red'; 
+         if (setup.linewidth==null) setup.linewidth=1;
         }
         var pathString = that.convertToPath(x,y,that.height);
-        that.snap.path(pathString).attr(
-         setup
-        );
+        that.snap.path(pathString).attr({
+          fill:'transparent',
+          stroke: setup.color,
+          strokeWidth: setup.linewidth
+        });
       }
     this.title=function(tlt){
     }
