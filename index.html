@@ -3,30 +3,24 @@
     <head>
         <meta charset="utf-8"  />
         <script type="text/javascript" src="snap.svg-min.js"></script>
-        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="plotlikematlab.js"></script>
     </head>
     <body>
-        <div class="wrapper">
+     <div class="wrapper">
         <svg id="figure1">
         </svg>
     </div>
     <script>
     var figure1 = new Figure('#figure1',1000,500);
-    var tdata=[],ydata=[];
-    for (var i=0;i<100;i++){
-    ydata[i]=Math.sin(i*0.1);
-    tdata[i]=i*0.1;
-    }
-    figure1.plot(tdata,ydata,{color:"red",linewidth:2});
-    for (var i=0;i<100;i++){
-    ydata[i]=Math.cos(i*0.1);
-    tdata[i]=i*0.1;
-    }
-    figure1.plot(tdata,ydata,{color:'newblue',linewidth:2});
-    figure1.title('Sine Function');
+    var t=Vector(0,0.1,10); //t=0:0.1:10
+    var y1=sin(sum(t,-Math.PI/2)); //y1=sin(t+pi)
+    figure1.plot(t,y1,{color:"red",linewidth:2,linestyle:'-'});
+    var y2=cos(t);
+    figure1.plot(t,y2,{color:'newblue',linewidth:2});
+    figure1.title('Sine and Cosine Function');
     figure1.ylabel('Velocity (m/s)');
     figure1.xlabel('Time (s)');
+    figure1.grid();
 
   </script>
         <style>
